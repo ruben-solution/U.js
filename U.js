@@ -207,8 +207,14 @@ var U = (function() {
          * 
          * @returns {int}
          */
-        timestamp: Date.now || function() {
-            return new Date().getTime();
+        timestamp: function() {
+            if (!Date.now) {
+                Date.now = function() {
+                    return new Date().getTime();
+                }
+            }
+
+            return Date.now();
         },
 
         /**
