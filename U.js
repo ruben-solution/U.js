@@ -1,4 +1,6 @@
 var U = (function() {
+    const R_MOBILE_DEVICES = /(iPhone|iPod|iPad|blackberry|android|Kindle|htc|lg|midp|mmp|mobile|nokia|opera mini|palm|pocket|psp|sgh|smartphone|symbian|treo mini|Playstation Portable|SonyEricsson|Samsung|MobileExplorer|PalmSource|Benq|Windows Phone|Windows Mobile|IEMobile|Windows CE|Nintendo Wii)/i
+
     /**
      * Adds a 0 in front of a number smaller than 10
      * 
@@ -60,11 +62,20 @@ var U = (function() {
         // Chrome 1+
         var isChrome = !!window.chrome && !!window.chrome.webstore;
 
-        if (isOpera) return 'opera';
-        else if (isFirefox) return 'firefox';
-        else if (isSafari) return 'safari';
-        else if (isEdge) return 'edge';
-        else if (isChrome) return 'chrome';
+        switch (true) {
+            case isOpera:
+                return 'opera';
+            case isFirefox:
+                return 'firefox';
+            case isSafari:
+                return 'safari';
+            case isEdge:
+                return 'edge';
+            case isChrome:
+                return 'chrome';
+            default:
+                return undefined;
+        }
     }
 
     return {
@@ -158,7 +169,7 @@ var U = (function() {
          * @returns {boolean}
          */
         isMobile: function() {
-            return navigator.userAgent.match(/(iPhone|iPod|iPad|blackberry|android|Kindle|htc|lg|midp|mmp|mobile|nokia|opera mini|palm|pocket|psp|sgh|smartphone|symbian|treo mini|Playstation Portable|SonyEricsson|Samsung|MobileExplorer|PalmSource|Benq|Windows Phone|Windows Mobile|IEMobile|Windows CE|Nintendo Wii)/i) !== null;
+            return navigator.userAgent.match(R_MOBILE_DEVICES) !== null;
         },
 
         /**
@@ -334,7 +345,11 @@ var U = (function() {
         },
 
         /**
+         * Generates random alpha-numerical string
+         * 
          * @param {int} len
+         * 
+         * @returns {string}
          */
         randomString: function(len) {
             var rdmString = "";
