@@ -101,6 +101,18 @@ var U = (function() {
         },
 
         /**
+         * Is password strong enough?
+         * Has to be 8 characters long and must have at least one letter, one number and one special character.
+         * 
+         * @param {string} password
+         * 
+         * @returns {boolean}
+         */
+        testPassword: function (password) {
+            return /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/.test(password);
+        },
+
+        /**
          * Get query sting
          * 
          * @param {string} name
