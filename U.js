@@ -370,6 +370,19 @@ var U = (function() {
         },
 
         /**
+         * Formats date from one format to another
+         * 
+         * @param {string} date
+         * @param {string} format
+         * @param {string} newFormat
+         * 
+         * @returns {string}
+         */
+        reformatDate: function(date, format, newFormat) {
+            return moment(moment(date, format).toDate()).format(newFormat);
+        },
+
+        /**
          * Generate an integer Array containing an arithmetic progression
          * 
          * @param {int} start
