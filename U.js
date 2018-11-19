@@ -413,6 +413,62 @@ var U = (function() {
             }
 
             return range;
+        },
+
+        /**
+         * Get all get parameters
+         * 
+         * @returns {object}
+         */
+        getUrlVars: function() {
+            var vars = [], hash;
+
+            if (window.location.href.indexOf('?') !== -1) {
+                var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+
+                for (var i = 0; i < hashes.length; i++) {
+                    hash = hashes[i].split('=');
+                    vars.push(hash[0]);
+                    vars[hash[0]] = hash[1];
+                }
+            }
+
+            return vars;
+        },
+
+        /**
+         * Converts hex format to rgb format
+         * 
+         * @param {string} hex
+         * 
+         * @returns {object}
+         */
+        hexToRgb: function(hex) {
+            // Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
+            var shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
+            hex = hex.replace(shorthandRegex, function(m, r, g, b) {
+                return r + r + g + g + b + b;
+            });
+
+            var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+            return result ? {
+                r: parseInt(result[1], 16),
+                g: parseInt(result[2], 16),
+                b: parseInt(result[3], 16)
+            } : null;
+        },
+
+        /**
+         * Converts rgb format to hex format
+         * 
+         * @param {int} r
+         * @param {int} g
+         * @param {int} b
+         * 
+         * @returns {string}
+         */
+        rgbToHex: function (r, g, b) {
+            return '#' + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
         }
     }
 })();
