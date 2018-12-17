@@ -1,9 +1,9 @@
 var U = (function() {
     /**
      * Adds a 0 in front of a number smaller than 10
-     * 
+     *
      * @param {int} n
-     * 
+     *
      * @returns {string}
      */
     function addZ(n) {
@@ -12,9 +12,9 @@ var U = (function() {
 
     /**
      * Formats date to CH format
-     * 
+     *
      * @param {Date} date
-     * 
+     *
      * @returns {string}
      */
     function formatDate(date) {
@@ -27,7 +27,7 @@ var U = (function() {
 
     /**
      * Checks whether moment.js is available
-     * 
+     *
      * @returns {boolean}
      */
     function isMomentAvailable() {
@@ -36,7 +36,7 @@ var U = (function() {
 
     /**
      * Determines browser. This function is not reliable, since everyone can change their user agent string.
-     * 
+     *
      * @returns {string}
      */
     function determinBrowser() {
@@ -46,7 +46,7 @@ var U = (function() {
         // Firefox 1.0+
         var isFirefox = typeof InstallTrigger !== 'undefined';
 
-        // Safari 3.0+ "[object HTMLElementConstructor]" 
+        // Safari 3.0+ "[object HTMLElementConstructor]"
         var isSafari = /constructor/i.test(window.HTMLElement) || (function(p) {
             return p.toString() === "[object SafariRemoteNotification]";
         })(!window['safari'] || (typeof safari !== 'undefined' && safari.pushNotification));
@@ -91,7 +91,7 @@ var U = (function() {
 
         /**
          * Returns browser. This function is not reliable, since everyone can change their user agent string.
-         * 
+         *
          * @returns {string}
          */
         browser: function() {
@@ -101,9 +101,9 @@ var U = (function() {
         /**
          * Is password strong enough?
          * Has to be 8 characters long and must have at least one letter, one number and one special character.
-         * 
+         *
          * @param {string} password
-         * 
+         *
          * @returns {boolean}
          */
         testPassword: function (password) {
@@ -112,10 +112,10 @@ var U = (function() {
 
         /**
          * Get query sting
-         * 
+         *
          * @param {string} name
          * @param {string} url
-         * 
+         *
          * @returns {string}
          */
         queryString: function(name, url) {
@@ -140,11 +140,11 @@ var U = (function() {
 
         /**
          * Replace every occurence of a given string
-         * 
+         *
          * @param {string} str
          * @param {string} find
          * @param {string} replace
-         * 
+         *
          * @returns {string}
          */
         replace: function(str, find, replace) {
@@ -153,9 +153,9 @@ var U = (function() {
 
         /**
          * Checks whether string is numeric
-         * 
+         *
          * @param {string} n
-         * 
+         *
          * @returns {boolean}
          */
         isNumeric: function(n) {
@@ -164,18 +164,18 @@ var U = (function() {
 
         /**
          * Formats number to CH-format
-         * 
+         *
          * @param {string} n
-         * 
+         *
          * @returns {string}
          */
-        formatNumberCH: function(n) {
+        currencyf: function(n) {
             return n.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1\'');
         },
 
         /**
          * Is user agent mobile
-         * 
+         *
          * @returns {boolean}
          */
         isMobile: function() {
@@ -190,9 +190,9 @@ var U = (function() {
 
         /**
          * Checks whether the var holds an array
-         * 
+         *
          * @param {object} obj
-         * 
+         *
          * @returns {boolean}
          */
         isArray: function(obj) {
@@ -201,9 +201,9 @@ var U = (function() {
 
         /**
          * Escape HTML characters
-         * 
+         *
          * @param {string} text
-         * 
+         *
          * @returns {string}
          */
         escape: function(text) {
@@ -217,7 +217,7 @@ var U = (function() {
 
         /**
          * Unescape HTML characters
-         * 
+         *
          * @param {string} text
          */
         unescape: function(text) {
@@ -231,7 +231,7 @@ var U = (function() {
 
         /**
          * Get timestamp
-         * 
+         *
          * @returns {int}
          */
         timestamp: function() {
@@ -246,7 +246,7 @@ var U = (function() {
 
         /**
          * Get current date in CH format
-         * 
+         *
          * @returns {string}
          */
         date: function() {
@@ -255,7 +255,7 @@ var U = (function() {
 
         /**
          * Get current time
-         * 
+         *
          * @returns {string}
          */
         time: function() {
@@ -265,10 +265,10 @@ var U = (function() {
 
         /**
          * Generates random number
-         * 
+         *
          * @param {int} min
          * @param {int} max
-         * 
+         *
          * @returns {int}
          */
         random: function(min, max) {
@@ -282,9 +282,9 @@ var U = (function() {
 
         /**
          * Returns first element of array
-         * 
+         *
          * @param {object} arr
-         * 
+         *
          * @returns {string|number|boolean|object|Array}
          */
         first: function(arr) {
@@ -301,10 +301,10 @@ var U = (function() {
 
         /**
          * Formats date
-         * 
+         *
          * @param {Date} date
          * @param {string} format
-         * 
+         *
          * @returns {string} formatted date
          */
         datetimeFormat: function(date, format) {
@@ -321,9 +321,9 @@ var U = (function() {
 
         /**
          * Gets cookie by name
-         * 
+         *
          * @param {string} name
-         * 
+         *
          * @returns {string}
          */
         getCookie: function(name) {
@@ -348,7 +348,7 @@ var U = (function() {
 
         /**
          * Sets a cookie
-         * 
+         *
          * @param {string} name
          * @param {string} value
          * @param {int} days
@@ -362,9 +362,9 @@ var U = (function() {
 
         /**
          * Generates random alpha-numerical string
-         * 
+         *
          * @param {int} len
-         * 
+         *
          * @returns {string}
          */
         randomString: function(len) {
@@ -375,11 +375,11 @@ var U = (function() {
 
         /**
          * Formats date from one format to another
-         * 
+         *
          * @param {string} date
          * @param {string} format
          * @param {string} newFormat
-         * 
+         *
          * @returns {string}
          */
         reformatDate: function(date, format, newFormat) {
@@ -388,11 +388,11 @@ var U = (function() {
 
         /**
          * Generate an integer Array containing an arithmetic progression
-         * 
+         *
          * @param {int} start
          * @param {int} stop
          * @param {int} step
-         * 
+         *
          * @returns {Array}
          */
         range: function(start, stop, step) {
@@ -417,7 +417,7 @@ var U = (function() {
 
         /**
          * Get all get parameters
-         * 
+         *
          * @returns {object}
          */
         getUrlVars: function() {
@@ -438,9 +438,9 @@ var U = (function() {
 
         /**
          * Converts hex format to rgb format
-         * 
+         *
          * @param {string} hex
-         * 
+         *
          * @returns {object}
          */
         hexToRgb: function(hex) {
@@ -460,15 +460,37 @@ var U = (function() {
 
         /**
          * Converts rgb format to hex format
-         * 
+         *
          * @param {int} r
          * @param {int} g
          * @param {int} b
-         * 
+         *
          * @returns {string}
          */
         rgbToHex: function (r, g, b) {
             return '#' + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+        },
+
+        /**
+         * Encodes string to base64
+         *
+         * @param {string} str
+         *
+         * @returns {string}
+         */
+        base64encode: function (str) {
+            return btoa(str);
+        },
+
+        /**
+         * Desodes base64 string
+         *
+         * @param {string} base64
+         *
+         * @returns {string}
+         */
+        base64decode: function (base64) {
+            return atob(base64);
         }
     }
 })();
