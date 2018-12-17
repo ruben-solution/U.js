@@ -35,6 +35,17 @@ var U = (function() {
     }
 
     /**
+     * Checks whether the var holds an array
+     *
+     * @param {object} obj
+     *
+     * @returns {boolean}
+     */
+    function isArray(obj) {
+        return Object.prototype.toString.call(obj) === '[object Array]';
+    }
+
+    /**
      * Determines browser. This function is not reliable, since everyone can change their user agent string.
      *
      * @returns {string}
@@ -196,7 +207,7 @@ var U = (function() {
          * @returns {boolean}
          */
         isArray: function(obj) {
-            return Object.prototype.toString.call(obj) === '[object Array]';
+            return isArray(obj);
         },
 
         /**
